@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#include <spdlog/spdlog.h>
+
 #include "benchmark.h"
 #include "bitmap.h"
 #include "builder.h"
@@ -240,8 +242,13 @@ bool BFSVerifier(const Graph &g, NodeID source,
   return true;
 }
 
+namespace spd = spdlog;
 
 int main(int argc, char* argv[]) {
+
+  auto console = spd::stdout_color_mt("console");
+  console->warn("spdlog is enabled!!");
+
   CLApp cli(argc, argv, "breadth-first search");
   if (!cli.ParseArgs())
     return -1;

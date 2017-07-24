@@ -1,6 +1,7 @@
 # See LICENSE.txt for license details.
 
 CXX_FLAGS += -std=c++11 -O3 -Wall
+LDFLAG = -I include/
 PAR_FLAG = -fopenmp
 
 ifneq (,$(findstring icpc,$(CXX)))
@@ -23,7 +24,7 @@ SUITE = $(KERNELS) converter
 all: $(SUITE)
 
 % : src/%.cc src/*.h
-	$(CXX) $(CXX_FLAGS) $< -o $@
+	$(CXX) $(LDFLAG) $(CXX_FLAGS) $< -o $@
 
 # Testing
 include test/test.mk
