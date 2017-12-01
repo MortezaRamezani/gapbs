@@ -32,7 +32,7 @@ class WriterBase {
   void WriteEL(std::fstream &out) {
     for (NodeID_ u=0; u < g_.num_nodes(); u++) {
       for (DestID_ v : g_.out_neigh(u))
-        out << u << " " << v << std::endl;
+        out << u+1 << " " << v+1 << std::endl;
     }
   }
 

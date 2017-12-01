@@ -8,6 +8,8 @@
 #include <iostream>
 #include <type_traits>
 
+#include <spdlog/spdlog.h>
+
 #include "pvector.h"
 #include "util.h"
 
@@ -23,6 +25,8 @@ Simple container for graph in CSR format
  - MakeInverse parameter controls whether graph stores its inverse
 */
 
+namespace spd = spdlog;
+auto console = spd::stdout_color_mt("console");
 
 // Used to hold node & weight, with another node it makes a weighted edge
 template <typename NodeID_, typename WeightT_>

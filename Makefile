@@ -1,5 +1,5 @@
 # See LICENSE.txt for license details.
-
+CXX=g++-7
 CXX_FLAGS += -std=c++11 -O3 -Wall
 LDFLAG = -I include/
 PAR_FLAG = -fopenmp
